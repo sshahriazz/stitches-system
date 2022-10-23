@@ -1,0 +1,80 @@
+name: CI/CD
+
+on:
+  push:
+    branches: [main]
+    paths-ignore: ["**/README.md"]
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize]
+    paths-ignore: ["**/README.md"]
+
+jobs:
+  avoid_reduncy:
+    runs-on: ubuntu-20.04
+    if: ${{ github.event_name == 'push' }}
+    steps:
+      - name: Cancel Previous Redundant Builds
+        uses: styfle/cancel-workflow-action@0.9.1
+        with:
+          access_token: ${{ github.token }}
+
+  lint:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v3
+        with:
+          cache: "yarn"
+          node-version: "16"
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Lint
+        run: yarn lint
+
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v3
+        with:
+          cache: "yarn"
+          node-version: "16"
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Build
+        run: yarn build
+
+  publish:
+    needs: [build]
+    runs-on: ubuntu-20.04
+    if: ${{ github.event_name == 'push' }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          cache: "yarn"
+          node-version: "16"
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Pre publish TNextUIPackage package
+        run: yarn pre-publish
+      - uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          package: "./lib/package.json"
+      - name: Show published version
+        if: steps.publish.outputs.type != 'none'
+        run: |
+          echo "Version changed: ${{ steps.publish.outputs.old-version }} => ${{ steps.publish.outputs.version }}"
+      - name: Tag new version
+        if: steps.publish.outputs.type != 'none'
+        uses: Klemensas/action-autotag@stable
+        with:
+          GITHUB_TOKEN: ${{ github.token }}
+          tag_prefix: "v"
+          package_root: "./"
