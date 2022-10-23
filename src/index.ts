@@ -1,9 +1,7 @@
 //Utils
 export * from "./utils/prop-types";
 
-
 export {default as CssBaseline} from "./css-baseline";
-
 
 //Theme
 export {default as TNextUIProvider} from "./theme/theme-provider";
@@ -27,28 +25,20 @@ export * from "./theme/colors";
 
 // Components
 
-
 export {default as Col} from "./col";
 export * from "./col";
-
 
 export {default as Container} from "./container";
 export * from "./container";
 
-
 export {default as Grid} from "./grid";
 export * from "./grid";
-
 
 export {default as Spacer} from "./spacer";
 export * from "./spacer";
 
-
 export {default as Row} from "./row";
 export * from "./row";
 
-
-
 export {default as Text} from "./text";
 export * from "./text";
-

@@ -1,17 +1,11 @@
-import React, { useMemo, RefAttributes, PropsWithoutRef } from "react";
+import React, {useMemo, RefAttributes, PropsWithoutRef} from "react";
 
-import {
-  BreakpointsValue,
-  Justify,
-  Direction,
-  AlignItems,
-  AlignContent,
-} from "../utils/prop-types";
-import { CSS } from "../theme/stitches.config";
+import {BreakpointsValue, Justify, Direction, AlignItems, AlignContent} from "../utils/prop-types";
+import {CSS} from "../theme/stitches.config";
 import clsx from "../utils/clsx";
 import withDefaults from "../utils/with-defaults";
 
-import { StyledGridItem, GridItemVariantProps } from "./grid.styles";
+import {StyledGridItem, GridItemVariantProps} from "./grid.styles";
 
 interface Props {
   xs?: BreakpointsValue;
@@ -67,10 +61,7 @@ const getItemLayout = (val?: BreakpointsValue): React.CSSProperties => {
   };
 };
 
-const GridItem = React.forwardRef<
-  HTMLDivElement,
-  React.PropsWithChildren<GridItemProps>
->(
+const GridItem = React.forwardRef<HTMLDivElement, React.PropsWithChildren<GridItemProps>>(
   (
     {
       xs,
@@ -87,10 +78,10 @@ const GridItem = React.forwardRef<
       className,
       ...props
     },
-    ref
+    ref,
   ) => {
     const classes = useMemo(() => {
-      const breaks: { [key: string]: unknown } = {
+      const breaks: {[key: string]: unknown} = {
         xs,
         sm,
         md,
@@ -98,8 +89,7 @@ const GridItem = React.forwardRef<
         xl,
       };
       const classString = Object.keys(breaks).reduce((pre, name) => {
-        if (breaks[name] !== undefined && breaks[name] !== false)
-          return `${pre} ${name}`;
+        if (breaks[name] !== undefined && breaks[name] !== false) return `${pre} ${name}`;
 
         return pre;
       }, "");
@@ -151,7 +141,7 @@ const GridItem = React.forwardRef<
         {children}
       </StyledGridItem>
     );
-  }
+  },
 );
 
 GridItem.displayName = "NextUI.GridItem";

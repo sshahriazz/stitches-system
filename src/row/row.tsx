@@ -1,10 +1,10 @@
 import React from "react";
 
 import withDefaults from "../utils/with-defaults";
-import { CSS } from "../theme/stitches.config";
-import { Justify, AlignItems, Wrap } from "../utils/prop-types";
+import {CSS} from "../theme/stitches.config";
+import {Justify, AlignItems, Wrap} from "../utils/prop-types";
 
-import StyledRow, { RowVariantsProps } from "./row.styles";
+import StyledRow, {RowVariantsProps} from "./row.styles";
 
 interface Props {
   gap?: number;

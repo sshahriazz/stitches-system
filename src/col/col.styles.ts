@@ -1,4 +1,4 @@
-import { styled, VariantProps } from "../theme/stitches.config";
+import {styled, VariantProps} from "../theme/stitches.config";
 
 export const StyledCol = styled("div", {
   float: "left",

@@ -1,4 +1,4 @@
-import { styled, VariantProps } from "../theme/stitches.config";
+import {styled, VariantProps} from "../theme/stitches.config";
 
 export const StyledSpacer = styled("span", {
   size: "1px",

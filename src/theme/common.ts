@@ -1,6 +1,6 @@
 import type * as Stitches from "@stitches/react";
 
-import { defaultThemeMap as defaultStitchesThemeMap } from "@stitches/react";
+import {defaultThemeMap as defaultStitchesThemeMap} from "@stitches/react";
 
 export const defaultTokens = {
   fonts: {
@@ -232,8 +232,7 @@ export const defaultColors = {
   neutralSolidContrast: "$white",
   neutralShadow: "$gray400",
 
-  gradient:
-    "linear-gradient(112deg, $cyan600 -63.59%, $pink600 -20.3%, $blue600 70.46%)",
+  gradient: "linear-gradient(112deg, $cyan600 -63.59%, $pink600 -20.3%, $blue600 70.46%)",
 
   // accents
   accents0: "$gray50",
@@ -327,7 +326,7 @@ export const defaultUtils = {
   to: (value: Stitches.PropertyValue<"textOverflow">) => ({
     textOverflow: value,
   }),
-  d: (value: Stitches.PropertyValue<"display">) => ({ display: value }),
+  d: (value: Stitches.PropertyValue<"display">) => ({display: value}),
   dflex: (value: Stitches.PropertyValue<"alignItems">) => ({
     display: "flex",
     alignItems: value,
@@ -336,7 +335,7 @@ export const defaultUtils = {
   fd: (value: Stitches.PropertyValue<"flexDirection">) => ({
     flexDirection: value,
   }),
-  fw: (value: Stitches.PropertyValue<"flexWrap">) => ({ flexWrap: value }),
+  fw: (value: Stitches.PropertyValue<"flexWrap">) => ({flexWrap: value}),
   ai: (value: Stitches.PropertyValue<"alignItems">) => ({
     alignItems: value,
   }),
@@ -349,7 +348,7 @@ export const defaultUtils = {
   as: (value: Stitches.PropertyValue<"alignSelf">) => ({
     alignSelf: value,
   }),
-  fg: (value: Stitches.PropertyValue<"flexGrow">) => ({ flexGrow: value }),
+  fg: (value: Stitches.PropertyValue<"flexGrow">) => ({flexGrow: value}),
   fs: (value: Stitches.PropertyValue<"fontSize">) => ({
     fontSize: value,
   }),
@@ -422,7 +421,7 @@ export const defaultUtils = {
   lh: (value: Stitches.PropertyValue<"lineHeight">) => ({
     lineHeight: value,
   }),
-  ov: (value: Stitches.PropertyValue<"overflow">) => ({ overflow: value }),
+  ov: (value: Stitches.PropertyValue<"overflow">) => ({overflow: value}),
   ox: (value: Stitches.PropertyValue<"overflowX">) => ({
     overflowX: value,
   }),
@@ -443,9 +442,9 @@ export const defaultUtils = {
     WebkitUserSelect: value,
     userSelect: value,
   }),
-  w: (value: Stitches.PropertyValue<"width">) => ({ width: value }),
-  h: (value: Stitches.PropertyValue<"height">) => ({ height: value }),
-  mw: (value: Stitches.PropertyValue<"maxWidth">) => ({ maxWidth: value }),
+  w: (value: Stitches.PropertyValue<"width">) => ({width: value}),
+  h: (value: Stitches.PropertyValue<"height">) => ({height: value}),
+  mw: (value: Stitches.PropertyValue<"maxWidth">) => ({maxWidth: value}),
   maxW: (value: Stitches.PropertyValue<"maxWidth">) => ({
     maxWidth: value,
   }),
@@ -539,4 +538,5 @@ const commonTheme = {
   utils: defaultUtils,
   themeMap: defaultThemeMap,
 };
+
 export default commonTheme;

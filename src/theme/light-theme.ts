@@ -1,4 +1,4 @@
-import { blue, purple, green, yellow, red, cyan, pink, gray } from "./colors";
+import {blue, purple, green, yellow, red, cyan, pink, gray} from "./colors";
 const lightTheme = {
   colors: {
     // background colors
@@ -40,4 +40,5 @@ const lightTheme = {
     xl: "drop-shadow(0 25px 34px rgb(104 112 118 / 0.35))",
   },
 };
+
 export default lightTheme;
