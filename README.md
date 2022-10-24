@@ -1,3 +1,5 @@
+# For those who don't like any UI library but still want a structured design system. This design system based on NextUI which built on top op stitches. You use these design system as next ui doc. Cool thing is these package is bloat component free.
+
 # How to use?
 
 [Use SSR](https://nextui.org/docs/guide/nextui-plus-nextjs). <br>
@@ -14,7 +16,7 @@ Basically you can use the whole theme section from the nextui doc.
 - [Spacer](https://nextui.org/docs/layout/spacer)
 - [Text](https://nextui.org/docs/components/text)
 
-## Demo Contains `App.tsx`
+## Demo Project
 
 [Repo: st-react](https://github.com/sshahriazz/st-react/tree/from-package)
 
@@ -26,10 +28,6 @@ Basically you can use the whole theme section from the nextui doc.
 - Light mode dark mode
 - LRT, RTL mode support
 
-[Coming Soon]() <br>
+## If you find any issue please report in github issues.
 
-- Import optimization
-
-[Future Plan]() <br>
-
-- Creating a separate package
+# Thanks for using.
