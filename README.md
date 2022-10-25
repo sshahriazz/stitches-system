@@ -1,7 +1,5 @@
 # For those who don't like any UI library but still want a structured design system. This design system based on NextUI which built on top op stitches. You use these design system as next ui doc. Cool thing is these package is bloat component free.
 
-### Current version: 1.0.2
-
 # How to use?
 
 ## Getting started
@@ -33,7 +31,7 @@ Go to the root of your application and do this:
 ```jsx
 import * as React from "react";
 
-// 1. import `NextUIProvider` component
+// 1. import `TNextUIProvider` component
 import { TNextUIProvider } from "stitches-system";
 
 function App({ Component }) {
@@ -59,7 +57,7 @@ const Component = () => <Container>Click me</Container>;
 ## Individual Imports
 
 ```jsx
-import { Text } from "stitches-system";
+import Text from "stitches-system/text";
 
 const Component = () => <Text h3>Click me</Text>;
 ```
