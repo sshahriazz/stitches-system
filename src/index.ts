@@ -51,3 +51,7 @@ export * from "./text";
 
 export { default as Stack } from "./stack";
 export * from "./stack";
+export { default as XStack } from "./xstack";
+export * from "./xstack";
+export { default as YStack } from "./ystack";
+export * from "./ystack";

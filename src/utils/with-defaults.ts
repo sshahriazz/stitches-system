@@ -1,6 +1,9 @@
 import React from "react";
 
-const withDefaults = <P, DP>(component: React.ComponentType<P>, defaultProps: DP) => {
+const withDefaults = <P, DP>(
+  component: React.ComponentType<P>,
+  defaultProps: DP
+) => {
   type Props = Partial<DP> & Omit<P, keyof DP>;
   // @ts-ignore
   component.defaultProps = defaultProps;

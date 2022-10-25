@@ -1,4 +1,4 @@
-import {MutableRefObject, useEffect, useState} from "react";
+import { MutableRefObject, useEffect, useState } from "react";
 
 export type ShapeType = {
   width: number;
@@ -17,12 +17,12 @@ const getCSSStyleVal = (str: string, parentNum: number) => {
 };
 
 export const getRealShape = (el: HTMLElement | null): ShapeType => {
-  const defaultShape: ShapeType = {width: 0, height: 0};
+  const defaultShape: ShapeType = { width: 0, height: 0 };
 
   if (!el || typeof window === "undefined") return defaultShape;
 
   const rect = el.getBoundingClientRect();
-  const {width, height} = window.getComputedStyle(el);
+  const { width, height } = window.getComputedStyle(el);
 
   return {
     width: getCSSStyleVal(`${width}`, rect.width),
@@ -32,15 +32,17 @@ export const getRealShape = (el: HTMLElement | null): ShapeType => {
 
 export type ShapeResult = [ShapeType, () => void];
 
-const useRealShape = <T extends HTMLElement>(ref: MutableRefObject<T | null>): ShapeResult => {
+const useRealShape = <T extends HTMLElement>(
+  ref: MutableRefObject<T | null>
+): ShapeResult => {
   const [state, setState] = useState<ShapeType>({
     width: 0,
     height: 0,
   });
   const update = () => {
-    const {width, height} = getRealShape(ref.current);
+    const { width, height } = getRealShape(ref.current);
 
-    setState({width, height});
+    setState({ width, height });
   };
 
   useEffect(() => update(), [ref.current]);

@@ -1,7 +1,7 @@
 import React from "react";
 
-import {theme} from "./stitches.config";
-import {NextUIThemeContext} from "./types";
+import { theme } from "./stitches.config";
+import { NextUIThemeContext } from "./types";
 
 export const defaultContext: NextUIThemeContext = {
   isDark: false,

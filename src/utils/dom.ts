@@ -1,4 +1,8 @@
-import {DOMRefValue, FocusableRef, FocusableRefValue} from "@react-types/shared";
+import {
+  DOMRefValue,
+  FocusableRef,
+  FocusableRefValue,
+} from "@react-types/shared";
 import {
   Ref,
   RefObject,
@@ -9,13 +13,17 @@ import {
 } from "react";
 
 export function canUseDOM(): boolean {
-  return !!(typeof window !== "undefined" && window.document && window.document.createElement);
+  return !!(
+    typeof window !== "undefined" &&
+    window.document &&
+    window.document.createElement
+  );
 }
 
 export const isBrowser = canUseDOM();
 
 function getUserAgentBrowser(navigator: Navigator) {
-  const {userAgent: ua, vendor} = navigator;
+  const { userAgent: ua, vendor } = navigator;
   const android = /(android)/i.test(ua);
 
   switch (true) {
@@ -42,10 +50,12 @@ function getUserAgentBrowser(navigator: Navigator) {
   }
 }
 
-export type UserAgentBrowser = NonNullable<ReturnType<typeof getUserAgentBrowser>>;
+export type UserAgentBrowser = NonNullable<
+  ReturnType<typeof getUserAgentBrowser>
+>;
 
 function getUserAgentOS(navigator: Navigator) {
-  const {userAgent: ua, platform} = navigator;
+  const { userAgent: ua, platform } = navigator;
 
   switch (true) {
     case /Android/.test(ua):
@@ -68,7 +78,7 @@ function getUserAgentOS(navigator: Navigator) {
 export type UserAgentOS = NonNullable<ReturnType<typeof getUserAgentOS>>;
 
 export function detectDeviceType(navigator: Navigator) {
-  const {userAgent: ua} = navigator;
+  const { userAgent: ua } = navigator;
 
   if (/(tablet)|(iPad)|(Nexus 9)/i.test(ua)) return "tablet";
   if (/(mobi)/i.test(ua)) return "phone";
@@ -76,7 +86,9 @@ export function detectDeviceType(navigator: Navigator) {
   return "desktop";
 }
 
-export type UserAgentDeviceType = NonNullable<ReturnType<typeof detectDeviceType>>;
+export type UserAgentDeviceType = NonNullable<
+  ReturnType<typeof detectDeviceType>
+>;
 
 export function detectOS(os: UserAgentOS) {
   if (!isBrowser) return false;
@@ -93,10 +105,16 @@ export function detectBrowser(browser: UserAgentBrowser) {
 export function detectTouch() {
   if (!isBrowser) return false;
 
-  return window.ontouchstart === null && window.ontouchmove === null && window.ontouchend === null;
+  return (
+    window.ontouchstart === null &&
+    window.ontouchmove === null &&
+    window.ontouchend === null
+  );
 }
 
-export function createDOMRef<T extends HTMLElement = HTMLElement>(ref: RefObject<T>) {
+export function createDOMRef<T extends HTMLElement = HTMLElement>(
+  ref: RefObject<T>
+) {
   return {
     UNSAFE_getDOMNode() {
       return ref.current;
@@ -106,7 +124,7 @@ export function createDOMRef<T extends HTMLElement = HTMLElement>(ref: RefObject
 
 export function createFocusableRef<T extends HTMLElement = HTMLElement>(
   domRef: RefObject<T>,
-  focusableRef: RefObject<HTMLElement> = domRef,
+  focusableRef: RefObject<HTMLElement> = domRef
 ): FocusableRefValue<T> {
   return {
     ...createDOMRef(domRef),
@@ -119,7 +137,7 @@ export function createFocusableRef<T extends HTMLElement = HTMLElement>(
 }
 
 export function useDOMRef<T extends HTMLElement = HTMLElement>(
-  ref?: RefObject<T | null> | Ref<T | null>,
+  ref?: RefObject<T | null> | Ref<T | null>
 ) {
   const domRef = useRef<T>(null);
 
@@ -130,7 +148,7 @@ export function useDOMRef<T extends HTMLElement = HTMLElement>(
 
 export function useFocusableRef<T extends HTMLElement = HTMLElement>(
   ref: FocusableRef<T>,
-  focusableRef?: RefObject<HTMLElement>,
+  focusableRef?: RefObject<HTMLElement>
 ): RefObject<T> {
   const domRef = useRef<T>(null);
 
@@ -144,7 +162,10 @@ export interface ContextValue<T> {
 }
 
 // Syncs ref from context with ref passed to hook
-export function useSyncRef<T>(context: ContextValue<T | null>, ref: RefObject<T>) {
+export function useSyncRef<T>(
+  context: ContextValue<T | null>,
+  ref: RefObject<T>
+) {
   useLayoutEffect(() => {
     if (context && context.ref && ref && ref.current) {
       context.ref.current = ref.current;

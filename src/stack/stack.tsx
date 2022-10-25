@@ -5,7 +5,7 @@ import { CSS } from "../theme";
 import { StyledStack, StyledStackVariantsProps } from "./stack.styles";
 const CLASS_NAME = "--stack";
 
-type Props = {
+export type Props = {
   direction: "row" | "column";
   splitAfter?: number;
   alignItems?: "center" | "start" | "end" | "normal";
@@ -76,14 +76,4 @@ export const Stack = forwardRef<HTMLDivElement, React.PropsWithChildren<Props>>(
   }
 );
 
-const XStack = forwardRef<
-  HTMLDivElement,
-  React.PropsWithChildren<Omit<Props, "direction">>
->((props, ref) => <Stack ref={ref} direction="row" {...props} />);
-
-const YStack = forwardRef<
-  HTMLDivElement,
-  React.PropsWithChildren<Omit<Props, "direction">>
->((props, ref) => <Stack ref={ref} direction="column" {...props} />);
-
-export { XStack, YStack };
+export default Stack;

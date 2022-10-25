@@ -1,9 +1,9 @@
 import React from "react";
 
 import withDefaults from "../utils/with-defaults";
-import {CSS} from "../theme/stitches.config";
+import { CSS } from "../theme/stitches.config";
 
-import StyledCol, {ColVariantsProps} from "./col.styles";
+import StyledCol, { ColVariantsProps } from "./col.styles";
 
 interface Props {
   span?: number;
@@ -19,7 +19,10 @@ const defaultProps = {
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 
-export type ColProps = Props & typeof defaultProps & ColVariantsProps & NativeAttrs;
+export type ColProps = Props &
+  typeof defaultProps &
+  ColVariantsProps &
+  NativeAttrs;
 
 const Col: React.FC<React.PropsWithChildren<ColProps>> = ({
   children,

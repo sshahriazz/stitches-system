@@ -1,4 +1,4 @@
-import {blue, purple, green, yellow, red, cyan, pink, gray} from "./colors";
+import { blue, purple, green, yellow, red, cyan, pink, gray } from "./colors";
 const lightTheme = {
   colors: {
     // background colors

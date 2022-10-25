@@ -1,5 +1,5 @@
-import {styled, VariantProps} from "../theme/stitches.config";
-import {cssHideShowIn} from "../theme/shared-css";
+import { styled, VariantProps } from "../theme/stitches.config";
+import { cssHideShowIn } from "../theme/shared-css";
 export const StyledText = styled(
   "p",
   {
@@ -35,7 +35,7 @@ export const StyledText = styled(
       },
     },
   },
-  cssHideShowIn,
+  cssHideShowIn
 );
 
 export type TextVariantsProps = VariantProps<typeof StyledText>;
