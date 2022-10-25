@@ -33,15 +33,11 @@
     "jsx-a11y/click-events-have-key-events": "warn",
     "jsx-a11y/interactive-supports-focus": "warn",
     "prettier/prettier": [
-      "warn",
+      "error",
       {
-        "printWidth": 100,
-        "trailingComma": "all",
         "tabWidth": 2,
         "semi": true,
         "singleQuote": false,
-        "bracketSpacing": false,
-        "arrowParens": "always",
         "endOfLine": "auto"
       }
     ],
