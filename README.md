@@ -1,6 +1,68 @@
 # For those who don't like any UI library but still want a structured design system. This design system based on NextUI which built on top op stitches. You use these design system as next ui doc. Cool thing is these package is bloat component free.
 
+### Current version: 1.0.2
+
 # How to use?
+
+## Getting started
+
+### Installation
+
+<br>
+Inside your React project directory, install NextUI by running either of the following:
+
+```bash
+yarn add stitches-system
+```
+
+or
+
+```bash
+npm install stitches-system
+```
+
+### Setup
+
+<br>
+For NextUI to work correctly, you need to set up the <code>TNextUIProvider</code> at the root of your application.
+
+#### React
+
+Go to the root of your application and do this:
+
+```jsx
+import * as React from "react";
+
+// 1. import `NextUIProvider` component
+import { TNextUIProvider } from "stitches-system";
+
+function App({ Component }) {
+  // 2. Use at the root of your app
+  return (
+    <TNextUIProvider>
+      <Component />
+    </TNextUIProvider>
+  );
+}
+```
+
+## Using NextUI components
+
+Once NextUI is installed you can use any of the components as follows. NextUI uses tree-shaking so the unused modules will not be included in the bundle during the build process and each component is exported separately.
+
+```jsx
+import { Container } from "stitches-system";
+
+const Component = () => <Container>Click me</Container>;
+```
+
+## Individual Imports
+
+```jsx
+import { Text } from "stitches-system";
+
+const Component = () => <Text h3>Click me</Text>;
+```
 
 [Use SSR](https://nextui.org/docs/guide/nextui-plus-nextjs). <br>
 [Default theme](https://nextui.org/docs/theme/default-theme).<br>
